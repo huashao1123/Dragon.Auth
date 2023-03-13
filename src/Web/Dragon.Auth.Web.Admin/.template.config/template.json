@@ -1,0 +1,319 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "MASA",
+  "classifications": ["Blazor", "Pro", "MASA", "Web"],
+  "description": "A project template creating an web application(Server or WebAssembly) with Blazor Pro.",
+  "identity": "Dragon.Auth.Web.Admin.Template",
+  "name": "MASA Blazor Pro Web",
+  "generatorVersions": "[0.3.0-*)",
+  "preferNameDirectory": true,
+  "shortName": "masabp",
+  "sourceName": "Dragon.Auth.Web.Admin",
+  "defaultName": "MasaWebPro",
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  },
+  "sources": [
+    {
+      "condition": "(!IsServerAndWasm && !UseHost)",
+      "source": "./Dragon.Auth.Web.Admin",
+      "target": "./",
+      "exclude": ["Dragon.Auth.Web.Admin.csproj"],
+      "modifiers": [
+        {
+          "exclude": ["Dragon.Auth.Web.Admin/wwwroot/img/**"]
+        },
+        {
+          "condition": "(IsWebAssembly)",
+          "exclude": ["Global/Middleware/**", "Global/ApplicationBuilderExtensions.cs"]
+        },
+        {
+          "condition": "(UseCDN)",
+          "exclude": [
+            "wwwroot/css/fontawesome/**",
+            "wwwroot/css/materialdesign/**",
+            "wwwroot/css/material/**",
+            "wwwroot/js/**"
+          ]
+        }
+      ]
+    },
+    {
+      "condition": "(IsWebAssembly && !UseHost)",
+      "source": "./Dragon.Auth.Web.Admin.WebAssembly",
+      "target": "./",
+      "modifiers": [
+        {
+          "rename": {
+            "Dragon.Auth.Web.Admin.WebAssembly.csproj": "Dragon.Auth.Web.Admin.csproj"
+          }
+        },
+        {
+          "condition": "(!UsePWA)",
+          "exclude": [
+            "wwwroot/manifest.json",
+            "wwwroot/service-worker.js",
+            "wwwroot/service-worker.published.js",
+            "wwwroot/icon-192.png",
+            "wwwroot/icon-512.png"
+          ]
+        }
+      ]
+    },
+    {
+      "condition": "(UseHost)",
+      "source": "./Dragon.Auth.Web.Admin.WebAssembly",
+      "target": "./Dragon.Auth.Web.Admin",
+      "modifiers": [
+        {
+          "rename": {
+            "Dragon.Auth.Web.Admin.WebAssembly.csproj": "Dragon.Auth.Web.Admin.csproj"
+          }
+        },
+        {
+          "exclude": [
+            "Dragon.Auth.Web.Admin/wwwroot/img/**",
+            "Global/Middleware/**",
+            "Global/ApplicationBuilderExtensions.cs"
+          ]
+        },
+        {
+          "condition": "(UseCDN)",
+          "exclude": [
+            "wwwroot/css/fontawesome/**",
+            "wwwroot/css/materialdesign/**",
+            "wwwroot/css/material/**",
+            "wwwroot/js/**"
+          ]
+        }
+      ]
+    },
+    {
+      "condition": "(UseHost)",
+      "include": ["Dragon.Auth.Web.Admin/**", "Dragon.Auth.Web.Admin.Host/**", "Dragon.Auth.Web.Admin.sln"],
+      "exclude": ["Dragon.Auth.Web.Admin/Dragon.Auth.Web.Admin.csproj"],
+      "modifiers": [
+        {
+          "rename": {
+            "Dragon.Auth.Web.Admin.WebAssembly.csproj": "Dragon.Auth.Web.Admin.csproj"
+          }
+        }
+      ]
+    },
+    {
+      "condition": "(IsServer)",
+      "source": "./Dragon.Auth.Web.Admin.Server",
+      "target": "./",
+      "modifiers": [
+        {
+          "rename": {
+            "Dragon.Auth.Web.Admin.Server.csproj": "Dragon.Auth.Web.Admin.csproj"
+          }
+        }
+      ]
+    },
+    {
+      "source": "./Dragon.Auth.Web.Admin/wwwroot/img",
+      "target": "./Dragon.Auth.Web.Admin.WebAssembly/wwwroot/img",
+      "condition": "(IsServerAndWasm)"
+    },
+    {
+      "source": "./Dragon.Auth.Web.Admin/wwwroot/img",
+      "target": "./Dragon.Auth.Web.Admin.Server/wwwroot/img",
+      "condition": "(IsServerAndWasm)"
+    },
+    {
+      "condition": "(IsServerAndWasm)",
+      "exclude": ["Dragon.Auth.Web.Admin/wwwroot/img/**", "Dragon.Auth.Web.Admin.Host/**"],
+      "modifiers": [
+        {
+          "condition": "(UseCDN)",
+          "exclude": [
+            "Dragon.Auth.Web.Admin/wwwroot/css/fontawesome/**",
+            "Dragon.Auth.Web.Admin/wwwroot/css/materialdesign/**",
+            "Dragon.Auth.Web.Admin/wwwroot/css/material/**",
+            "Dragon.Auth.Web.Admin/wwwroot/js/**"
+          ]
+        },
+        {
+          "condition": "(!UsePWA)",
+          "exclude": [
+            "Dragon.Auth.Web.Admin.WebAssembly/wwwroot/manifest.json",
+            "Dragon.Auth.Web.Admin.WebAssembly/wwwroot/service-worker.js",
+            "Dragon.Auth.Web.Admin.WebAssembly/wwwroot/service-worker.published.js",
+            "Dragon.Auth.Web.Admin.WebAssembly/wwwroot/icon-192.png",
+            "Dragon.Auth.Web.Admin.WebAssembly/wwwroot/icon-512.png"
+          ]
+        }
+      ]
+    }
+  ],
+  "symbols": {
+    "Mode": {
+      "type": "parameter",
+      "datatype": "choice",
+      "choices": [
+        {
+          "choice": "Wasm",
+          "description": "Create a Masa Blazor WebAssembly project"
+        },
+        {
+          "choice": "Wasm-Host",
+          "description": "Create a Masa Blazor WebAssembly project include an ASP.NET Core host"
+        },
+        {
+          "choice": "Wasm-PWA",
+          "description": "Create a Masa Blazor WebAssembly project use progressive web application"
+        },
+        {
+          "choice": "Server",
+          "description": "Create a Masa Blazor Server project"
+        },
+        {
+          "choice": "ServerAndWasm",
+          "description": "Create a Masa Blazor Server 、WebAssembly and RCL solution"
+        }
+      ],
+      "defaultValue": "Server",
+      "description": "choice blazor type Server or WebAssembly"
+    },
+    "UseCDN": {
+      "type": "parameter",
+      "datatype": "bool",
+      "defaultValue": "false",
+      "description": "Whether to use CDN instead of local files."
+    },
+    "IsServer": {
+      "type": "computed",
+      "value": "(Mode == \"Server\")"
+    },
+    "IsWebAssembly": {
+      "type": "computed",
+      "value": "(Mode == \"Wasm\" || Mode == \"Wasm-PWA\" || Mode == \"Wasm-Host\")"
+    },
+    "IsServerAndWasm": {
+      "type": "computed",
+      "value": "(Mode == \"ServerAndWasm\")"
+    },
+    "UsePWA": {
+      "type": "computed",
+      "value": "(Mode == \"Wasm-PWA\")"
+    },
+    "UseRCL": {
+      "type": "computed",
+      "value": "(IsServerAndWasm)"
+    },
+    "UseHost": {
+      "type": "computed",
+      "value": "(Mode == \"Wasm-Host\")"
+    },
+    "KestrelHttpPort": {
+      "type": "parameter",
+      "datatype": "integer",
+      "description": "Port number to use for the HTTP endpoint in launchSettings.json."
+    },
+    "KestrelHttpPortGenerated": {
+      "type": "generated",
+      "generator": "port",
+      "parameters": {
+        "low": 5100,
+        "high": 5399
+      }
+    },
+    "KestrelHttpPortReplacer": {
+      "type": "generated",
+      "generator": "coalesce",
+      "parameters": {
+        "sourceVariableName": "KestrelHttpPort",
+        "fallbackVariableName": "KestrelHttpPortGenerated"
+      },
+      "replaces": "5253"
+    },
+    "KestrelHttpsPort": {
+      "type": "parameter",
+      "datatype": "integer",
+      "description": "Port number to use for the HTTPS endpoint in launchSettings.json."
+    },
+    "KestrelHttpsPortGenerated": {
+      "type": "generated",
+      "generator": "port",
+      "parameters": {
+        "low": 7100,
+        "high": 7399
+      }
+    },
+    "KestrelHttpsPortReplacer": {
+      "type": "generated",
+      "generator": "coalesce",
+      "parameters": {
+        "sourceVariableName": "KestrelHttpPorts",
+        "fallbackVariableName": "KestrelHttpsPortGenerated"
+      },
+      "replaces": "7211"
+    },
+    "IISHttpPort": {
+      "type": "parameter",
+      "datatype": "integer",
+      "description": "Port number to use for the IIS Express HTTP endpoint in launchSettings.json."
+    },
+    "IISHttpPortGenerated": {
+      "type": "generated",
+      "generator": "port",
+      "parameters": {
+        "low": 9000,
+        "high": 10000
+      }
+    },
+    "IISHttpPortReplacer": {
+      "type": "generated",
+      "generator": "coalesce",
+      "parameters": {
+        "sourceVariableName": "IISHttpPort",
+        "fallbackVariableName": "IISHttpPortGenerated"
+      },
+      "replaces": "9275"
+    },
+    "IISHttpsPort": {
+      "type": "parameter",
+      "datatype": "integer",
+      "description": "Port number to use for the IIS Express HTTPS endpoint in launchSettings.json. This option is only applicable when the parameter no-https is not used (no-https will be ignored if either IndividualAuth or OrganizationalAuth is used)."
+    },
+    "IISHttpsPortGenerated": {
+      "type": "generated",
+      "generator": "port",
+      "parameters": {
+        "low": 44300,
+        "high": 44699
+      }
+    },
+    "HttpsPortReplacer": {
+      "type": "generated",
+      "generator": "coalesce",
+      "parameters": {
+        "sourceVariableName": "IISHttpsPort",
+        "fallbackVariableName": "IISHttpsPortGenerated"
+      },
+      "replaces": "44371"
+    },
+    "skipRestore": {
+      "type": "parameter",
+      "datatype": "bool",
+      "description": "If specified, skips the automatic restore of the project on create.",
+      "defaultValue": "false"
+    }
+  },
+  "postActions": [
+    {
+      "condition": "(!skipRestore)",
+      "description": "Restore NuGet packages required by this project.",
+      "manualInstructions": [
+        {
+          "text": "Run 'dotnet restore'"
+        }
+      ],
+      "actionId": "210D431B-A78B-4D2F-B762-4ED3E3EA9025",
+      "continueOnError": true
+    }
+  ]
+}

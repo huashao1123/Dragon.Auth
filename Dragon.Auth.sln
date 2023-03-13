@@ -1,0 +1,86 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33205.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dapr", "dapr", "{C80330F5-1545-4AE7-9D9B-3300C3DE29CA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{76A23379-39EB-458E-AC14-39FDB2F2AB72}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "web", "web", "{66E10EED-2EC8-4EBD-8D20-033F26ECE209}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApiGateways", "ApiGateways", "{A297FB83-52F9-4749-9044-AF647EA3EE35}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{5DE64018-15F4-491A-AA99-104D4B7A38FB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Contracts", "Contracts", "{4BEA642B-861C-4936-9A51-C2F5D53CFEF0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dragon.Auth.ApiGateways.Caller", "src\ApiGateways\Dragon.Auth.ApiGateways.Caller\Dragon.Auth.ApiGateways.Caller.csproj", "{446C165B-B245-4092-8AC8-0ED1156B98EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dragon.Auth.Contracts.Admin", "src\Contracts\Dragon.Auth.Contracts.Admin\Dragon.Auth.Contracts.Admin.csproj", "{FBBFF40A-E4B7-4E55-8FB0-7A2B9D7057CB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dragon.Auth.Services.Admin", "src\Services\Dragon.Auth.Services.Admin\Dragon.Auth.Services.Admin.csproj", "{4412A35C-AD23-4BE8-A8BE-CE8B4D00C998}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dragon.Auth.Web.Admin", "src\Web\Dragon.Auth.Web.Admin\Dragon.Auth.Web.Admin\Dragon.Auth.Web.Admin.csproj", "{51181783-6FE6-4FAF-B7AE-21C04F2976EB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dragon.Auth.Web.Admin.Server", "src\Web\Dragon.Auth.Web.Admin\Dragon.Auth.Web.Admin.Server\Dragon.Auth.Web.Admin.Server.csproj", "{AA6E258A-48F4-47B0-ABB6-DF788769D9F2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dragon.Auth.Web.Admin.WebAssembly", "src\Web\Dragon.Auth.Web.Admin\Dragon.Auth.Web.Admin.WebAssembly\Dragon.Auth.Web.Admin.WebAssembly.csproj", "{D8708A8C-0B8A-4317-AFE4-4DDA4710D964}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dragon.Auth.Web.Sso", "src\Web\Dragon.Auth.Web.Sso\Dragon.Auth.Web.Sso.csproj", "{C300A762-53EF-4BCA-9F27-5FE68C12542B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{446C165B-B245-4092-8AC8-0ED1156B98EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{446C165B-B245-4092-8AC8-0ED1156B98EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{446C165B-B245-4092-8AC8-0ED1156B98EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{446C165B-B245-4092-8AC8-0ED1156B98EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FBBFF40A-E4B7-4E55-8FB0-7A2B9D7057CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBBFF40A-E4B7-4E55-8FB0-7A2B9D7057CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBBFF40A-E4B7-4E55-8FB0-7A2B9D7057CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBBFF40A-E4B7-4E55-8FB0-7A2B9D7057CB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4412A35C-AD23-4BE8-A8BE-CE8B4D00C998}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4412A35C-AD23-4BE8-A8BE-CE8B4D00C998}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4412A35C-AD23-4BE8-A8BE-CE8B4D00C998}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4412A35C-AD23-4BE8-A8BE-CE8B4D00C998}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51181783-6FE6-4FAF-B7AE-21C04F2976EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51181783-6FE6-4FAF-B7AE-21C04F2976EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51181783-6FE6-4FAF-B7AE-21C04F2976EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51181783-6FE6-4FAF-B7AE-21C04F2976EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA6E258A-48F4-47B0-ABB6-DF788769D9F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA6E258A-48F4-47B0-ABB6-DF788769D9F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA6E258A-48F4-47B0-ABB6-DF788769D9F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA6E258A-48F4-47B0-ABB6-DF788769D9F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8708A8C-0B8A-4317-AFE4-4DDA4710D964}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8708A8C-0B8A-4317-AFE4-4DDA4710D964}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8708A8C-0B8A-4317-AFE4-4DDA4710D964}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8708A8C-0B8A-4317-AFE4-4DDA4710D964}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C300A762-53EF-4BCA-9F27-5FE68C12542B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C300A762-53EF-4BCA-9F27-5FE68C12542B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C300A762-53EF-4BCA-9F27-5FE68C12542B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C300A762-53EF-4BCA-9F27-5FE68C12542B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{66E10EED-2EC8-4EBD-8D20-033F26ECE209} = {76A23379-39EB-458E-AC14-39FDB2F2AB72}
+		{A297FB83-52F9-4749-9044-AF647EA3EE35} = {76A23379-39EB-458E-AC14-39FDB2F2AB72}
+		{5DE64018-15F4-491A-AA99-104D4B7A38FB} = {76A23379-39EB-458E-AC14-39FDB2F2AB72}
+		{4BEA642B-861C-4936-9A51-C2F5D53CFEF0} = {76A23379-39EB-458E-AC14-39FDB2F2AB72}
+		{446C165B-B245-4092-8AC8-0ED1156B98EA} = {A297FB83-52F9-4749-9044-AF647EA3EE35}
+		{FBBFF40A-E4B7-4E55-8FB0-7A2B9D7057CB} = {4BEA642B-861C-4936-9A51-C2F5D53CFEF0}
+		{4412A35C-AD23-4BE8-A8BE-CE8B4D00C998} = {5DE64018-15F4-491A-AA99-104D4B7A38FB}
+		{51181783-6FE6-4FAF-B7AE-21C04F2976EB} = {66E10EED-2EC8-4EBD-8D20-033F26ECE209}
+		{AA6E258A-48F4-47B0-ABB6-DF788769D9F2} = {66E10EED-2EC8-4EBD-8D20-033F26ECE209}
+		{D8708A8C-0B8A-4317-AFE4-4DDA4710D964} = {66E10EED-2EC8-4EBD-8D20-033F26ECE209}
+		{C300A762-53EF-4BCA-9F27-5FE68C12542B} = {66E10EED-2EC8-4EBD-8D20-033F26ECE209}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D2DE5E96-19A8-4D07-AC5B-587BE11D154D}
+	EndGlobalSection
+EndGlobal
